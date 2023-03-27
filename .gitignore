@@ -1,0 +1,6 @@
+# Ignore all
+*
+
+# Un-ignore required
+!.gitignore
+!.tmux.conf
