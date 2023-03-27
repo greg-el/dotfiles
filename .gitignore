@@ -4,3 +4,12 @@
 # Un-ignore required
 !.gitignore
 !.tmux.conf
+
+!.config
+
+!.config/nvim
+!.config/nvim/init.lua
+
+!.config/nvim/lua/
+!.config/nvim/lua/*
+.config/nvim/lua/.luarc.json
