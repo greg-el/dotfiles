@@ -72,9 +72,20 @@ return require("packer").startup(function()
 		},
 	})
 
+	-- Github
+	use({
+		"pwntester/octo.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
+	})
+
 	-- Themes
-	use("ellisonleao/gruvbox.nvim")
+	use("morhetz/gruvbox")
 	use("Shatur/neovim-ayu")
 	use("navarasu/onedark.nvim")
 	use({ "rebelot/kanagawa.nvim", commit = "fc2e308" })
+	use("RRethy/nvim-base16")
 end)
