@@ -26,16 +26,30 @@ vim.opt.shiftwidth = TAB_WIDTH
 -- Themes
 --------------------------------------------------------
 
-vim.cmd("colorscheme kanagawa")
+vim.cmd.colorscheme("kanagawa")
 
--- Format on save
-vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+-- Remove tilde ~ on empty lines
+vim.opt.fillchars:append({ eob = " " })
 
 --------------------------------------------------------
 -- Tabs (Barbar)
 --------------------------------------------------------
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+
+-- Mac uses Alt(Option) to insert characters, so binds like `<A-,>` won't work:
+-- We can set the binds to the character inserted by MacOS
+
+local os = io.popen("uname -s", "r"):read("*l")
+
+if os == "Darwin" then
+	-- Move prev/next
+	map("n", "≤", "<Cmd>BufferPrevious<CR>", opts)
+	map("n", "≥", "<Cmd>BufferNext<CR>", opts)
+
+	-- Close
+	map("n", "…", "<Cmd>BufferClose<CR>", opts)
+end
 
 -- Move prev/next
 map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
