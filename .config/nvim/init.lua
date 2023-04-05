@@ -37,6 +37,16 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
+-- TypeScript
+
+require("lspconfig").tsserver.setup({
+	on_attach = function()
+		vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+	end,
+	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+	cmd = { "typescript-language-server", "--stdio" },
+})
+
 -- Lualine
 require("lualine").setup({
 	options = {
@@ -157,5 +167,7 @@ map("n", "<Leader>s", ":Telescope live_grep<CR>", {})
 map("n", "<Leader>g", ":Telescope git_files<CR>", {})
 map("n", "<Leader>p", ":Telescope find_files<CR>", {})
 
-require("opts")
+require("octo").setup()
+
 require("neo-tree-setup")
+require("opts")
