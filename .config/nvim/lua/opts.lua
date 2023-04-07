@@ -26,7 +26,15 @@ vim.opt.shiftwidth = TAB_WIDTH
 -- Themes
 --------------------------------------------------------
 
-vim.cmd.colorscheme("kanagawa")
+require("kanagawa").setup({
+	theme = "dragon",
+	background = {
+		dark = "dragon",
+		light = "lotus",
+	},
+})
+
+vim.cmd("colorscheme kanagawa")
 
 -- Remove tilde ~ on empty lines
 vim.opt.fillchars:append({ eob = " " })
