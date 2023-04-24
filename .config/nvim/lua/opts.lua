@@ -22,6 +22,9 @@ vim.opt.tabstop = TAB_WIDTH
 vim.opt.softtabstop = TAB_WIDTH
 vim.opt.shiftwidth = TAB_WIDTH
 
+-- Auto line number exclusions
+vim.g.numbers_exclude = { "neo-tree" }
+
 --------------------------------------------------------
 -- Themes
 --------------------------------------------------------

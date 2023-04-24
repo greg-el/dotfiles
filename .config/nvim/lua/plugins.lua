@@ -72,6 +72,10 @@ return require("packer").startup(function()
 		},
 	})
 
+	-- Commentary
+	-- https://github.com/tpope/vim-commentary
+	use("tpope/vim-commentary")
+
 	-- Github
 	use({
 		"pwntester/octo.nvim",
@@ -81,6 +85,12 @@ return require("packer").startup(function()
 			"kyazdani42/nvim-web-devicons",
 		},
 	})
+
+	-- Auto line nums
+	use("myusuf3/numbers.vim")
+
+	-- Multi Cursor
+	use("terryma/vim-multiple-cursors")
 
 	-- Themes
 	use("morhetz/gruvbox")
