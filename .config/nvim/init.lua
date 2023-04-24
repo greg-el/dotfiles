@@ -75,7 +75,6 @@ rt.setup({
 	},
 })
 
-require("rust-tools").setup(rt)
 
 -- LSP Diagnostics Options Setup
 local sign = function(opts)
