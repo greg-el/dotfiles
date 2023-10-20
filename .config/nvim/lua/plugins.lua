@@ -7,7 +7,7 @@ return require("packer").startup(function()
 	use("williamboman/mason-lspconfig.nvim")
 	require("mason").setup()
 
-	use("neovim/nvim-lspconfig")
+	use({ "neovim/nvim-lspconfig", opts = { inlay_hints = { enabled = true } } })
 	use("simrat39/rust-tools.nvim")
 
 	-- Completion framework:

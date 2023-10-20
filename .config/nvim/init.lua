@@ -8,6 +8,10 @@ vim.wo.number = true
 -- Sets leader to ,
 vim.g.mapleader = ","
 
+-- LSP Shortcuts
+
+vim.api.nvim_set_keymap("n", "<Leader>f", [[<Cmd>lua vim.lsp.buf.code_action()<CR>]], { noremap = true, silent = true })
+
 -- LSP Setups
 require("lspconfig").lua_ls.setup({
 	on_attach = function()
@@ -78,7 +82,6 @@ rt.setup({
 	},
 })
 
-
 -- LSP Diagnostics Options Setup
 local sign = function(opts)
 	vim.fn.sign_define(opts.name, {
@@ -136,13 +139,13 @@ cmp.setup({
 	},
 	-- Installed sources:
 	sources = {
-		{ name = "path" },                   -- file paths
+		{ name = "path" },                                 -- file paths
 		{ name = "nvim_lsp",               keyword_length = 3 }, -- from language server
-		{ name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized
+		{ name = "nvim_lsp_signature_help" },              -- display function signatures with current parameter emphasized
 		{ name = "nvim_lua",               keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
 		{ name = "buffer",                 keyword_length = 2 }, -- source current buffer
 		{ name = "vsnip",                  keyword_length = 2 }, -- nvim-cmp source for vim-vsnip
-		{ name = "calc" },                   -- source for math calculation
+		{ name = "calc" },                                 -- source for math calculation
 	},
 	window = {
 		completion = cmp.config.window.bordered(),
@@ -168,6 +171,7 @@ cmp.setup({
 map("n", "<Leader>s", ":Telescope live_grep<CR>", {})
 map("n", "<Leader>g", ":Telescope git_files<CR>", {})
 map("n", "<Leader>p", ":Telescope find_files<CR>", {})
+map("n", "<Leader>d", ":Telescope diagnostics<CR>", {})
 
 require("octo").setup()
 
