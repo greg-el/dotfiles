@@ -31,13 +31,15 @@ return require("packer").startup(function()
 	use("nvim-treesitter/nvim-treesitter")
 
 	-- File browser
+	use("MunifTanjim/nui.nvim")
+
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
+		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		branch = "v2.x",
 		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
 		},
 	})
 
@@ -53,7 +55,7 @@ return require("packer").startup(function()
 	-- Fuzzy search
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
+		tag = "0.1.5",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
